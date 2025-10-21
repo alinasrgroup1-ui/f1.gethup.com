@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formula 1 Teams & Racers</title>
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -70,7 +68,6 @@
 </head>
 <body class="text-gray-200">
 
-    <!-- Header Section -->
     <header class="bg-gray-900 shadow-lg">
         <div class="container mx-auto px-6 py-4 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
@@ -80,13 +77,11 @@
         </div>
     </header>
 
-    <!-- Main Content: Teams Grid -->
     <main class="container mx-auto px-6 py-12">
         <h2 class="text-3xl font-bold text-center mb-10 text-white">Meet the 2024 Teams</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
             
-            <!-- Team Card: Mercedes -->
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
                 <div class="relative">
                     <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mercedes-1" alt="Mercedes-AMG F1 W15 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=W15+Car';">
@@ -118,7 +113,6 @@
                 </div>
             </div>
 
-            <!-- Team Card: Red Bull Racing -->
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
                 <div class="relative">
                     <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Red-Bull-2024/Oracle-Red-Bull-Racing-RB20-launch-2024-1" alt="Red Bull Racing RB20 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=RB20+Car';">
@@ -150,7 +144,6 @@
                 </div>
             </div>
 
-            <!-- Team Card: Ferrari -->
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
                 <div class="relative">
                     <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Ferrari-2024/Scuderia-Ferrari-SF-24-launch-2024" alt="Ferrari SF-24 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=SF-24+Car';">
@@ -182,7 +175,6 @@
                 </div>
             </div>
 
-            <!-- Team Card: McLaren -->
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
                 <div class="relative">
                     <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mclaren-1" alt="McLaren MCL38 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=MCL38+Car';">
@@ -217,7 +209,6 @@
         </div>
     </main>
     
-    <!-- Gemini Analysis Modal -->
     <div id="gemini-modal" class="modal-hidden modal-overlay">
         <div class="modal-content">
             <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
@@ -232,7 +223,6 @@
     </div>
 
 
-    <!-- Footer -->
     <footer class="bg-gray-900 mt-8">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
             <p>&copy; 2024 F1 World Showcase. All rights reserved.</p>
@@ -249,7 +239,8 @@
             const spinnerContainer = document.getElementById('spinner-container');
             const geminiBtns = document.querySelectorAll('.gemini-btn');
 
-            const apiKey = ""; // Canvas will provide this
+            // **REMINDER: You must replace the empty string with your actual API key for the function to work.**
+            const apiKey = ""; 
 
             // Function to show the modal
             const showModal = () => {
@@ -284,18 +275,21 @@
                 });
             });
 
-            // --- Gemini API Call ---
+            // --- Gemini API Call (CORRECTED) ---
             async function callGeminiAPI(teamName, teamInfo, retries = 3, delay = 1000) {
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                // Correct API endpoint and model
+                const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
                 const systemPrompt = "You are a world-class Formula 1 strategist and analyst. Your insights are sharp, concise, and easy for a fan to understand.";
                 const userQuery = `Based on this information: "${teamInfo}", provide a short, insightful analysis of the likely race strategy for the ${teamName} Formula 1 team. Focus on their typical strengths, car characteristics, and driver styles to predict how they might approach a race weekend. Keep the analysis to one paragraph.`;
 
+                // Correct payload structure for system and user instructions
                 const payload = {
-                    contents: [{ parts: [{ text: userQuery }] }],
-                    systemInstruction: {
-                        parts: [{ text: systemPrompt }]
-                    },
+                    contents: [
+                        { role: "user", parts: [{ text: systemPrompt }] },
+                        { role: "model", parts: [{ text: "Acknowledged. I am ready to provide a concise strategic F1 analysis." }] },
+                        { role: "user", parts: [{ text: userQuery }] }
+                    ],
                 };
 
                 try {
@@ -320,12 +314,13 @@
                     if (candidate && candidate.content?.parts?.[0]?.text) {
                         geminiResponseEl.textContent = candidate.content.parts[0].text;
                     } else {
-                        throw new Error("Invalid response structure from API.");
+                        const errorMessage = result.error?.message || "Invalid or empty response structure from API.";
+                        throw new Error(errorMessage);
                     }
 
                 } catch (error) {
                     console.error('Gemini API call failed:', error);
-                    geminiResponseEl.textContent = 'Sorry, the strategic analysis could not be generated at this time. Please try again later.';
+                    geminiResponseEl.textContent = `Sorry, the strategic analysis could not be generated at this time. Please try again later. (Error: ${error.message})`;
                 } finally {
                     spinnerContainer.style.display = 'none'; // Hide spinner
                 }
@@ -335,4 +330,3 @@
 
 </body>
 </html>
-
