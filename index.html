@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formula 1 Teams & Racers</title>
+    <title>Formula 1 Teams & Racers (2025 Season)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +26,17 @@
             width: auto;
             object-fit: contain;
         }
+        .car-image {
+             /* Ensures a consistent look for all car images/placeholders */
+            background-color: #1f2937; 
+            background-image: linear-gradient(135deg, #1f2937 0%, #0d0d10 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d1d5db;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -33,108 +44,82 @@
     <header class="bg-gray-900 shadow-lg">
         <div class="container mx-auto px-6 py-4 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                <span class="text-red-500">F1</span> WORLD
+                <span class="text-red-500">F1</span> WORLD: 2025 SEASON
             </h1>
             <p class="mt-2 text-lg text-gray-400">The Pinnacle of Motorsport: Teams, Drivers, and Cars</p>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold text-center mb-10 text-white">Meet the 2024 Teams</h2>
+        <h2 class="text-3xl font-bold text-center mb-10 text-white">Meet the 2025 Teams</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
             
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-red-700 flex flex-col">
                 <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mercedes-1" alt="Mercedes-AMG F1 W15 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=W15+Car';">
-                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/mercedes-logo.png" alt="Mercedes Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Mercedes-AMG Petronas</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">A dominant force in the hybrid era, known for engineering excellence and multiple championships.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Lewis Hamilton</p>
-                                <p class="text-sm text-gray-500">#44</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">George Russell</p>
-                                <p class="text-sm text-gray-500">#63</p>
-                            </div>
-                        </div>
-                    </div>
-                     </div>
-            </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Red-Bull-2024/Oracle-Red-Bull-Racing-RB20-launch-2024-1" alt="Red Bull Racing RB20 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=RB20+Car';">
-                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/red-bull-racing-logo.png" alt="Red Bull Racing Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Oracle Red Bull Racing</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">Known for their aggressive strategy, aerodynamic prowess, and a championship-winning pedigree.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Max Verstappen</p>
-                                <p class="text-sm text-gray-500">#1</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">Sergio Pérez</p>
-                                <p class="text-sm text-gray-500">#11</p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Ferrari-2024/Scuderia-Ferrari-SF-24-launch-2024" alt="Ferrari SF-24 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=SF-24+Car';">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Ferrari-2024/Scuderia-Ferrari-SF-24-launch-2024" alt="Ferrari SF-25 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/cc0000/FFFFFF?text=SF-25+Car';">
                      <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
                        <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/ferrari-logo.png" alt="Ferrari Logo">
                     </div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Scuderia Ferrari</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">The most historic and successful team in F1, with a passionate global fanbase known as the Tifosi.</p>
+                    <h3 class="text-2xl font-bold text-white">Scuderia Ferrari HP <span class="text-sm text-gray-400">(SF-25)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">The most historic team, entering 2025 with one of the most anticipated driver lineups in history: the arrival of Lewis Hamilton.</p>
                     <div class="mt-6">
                         <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-6">
                             <div class="text-center">
                                 <p class="font-bold">Charles Leclerc</p>
                                 <p class="text-sm text-gray-500">#16</p>
                             </div>
                             <div class="text-center">
-                                <p class="font-bold">Carlos Sainz</p>
-                                <p class="text-sm text-gray-500">#55</p>
+                                <p class="font-bold">Lewis Hamilton</p>
+                                <p class="text-sm text-gray-500">#44</p>
                             </div>
                         </div>
                     </div>
-                     </div>
+                </div>
             </div>
 
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-blue-700 flex flex-col">
                 <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mclaren-1" alt="McLaren MCL38 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=MCL38+Car';">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Red-Bull-2024/Oracle-Red-Bull-Racing-RB20-launch-2024-1" alt="Red Bull Racing RB21 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0d1a49/FFFFFF?text=RB21+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/red-bull-racing-logo.png" alt="Red Bull Racing Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Oracle Red Bull Racing <span class="text-sm text-gray-400">(RB21)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">The reigning champion team, pairing the dominant Max Verstappen with the promoted Liam Lawson for the new season.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Max Verstappen</p>
+                                <p class="text-sm text-gray-500">#1</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Liam Lawson</p>
+                                <p class="text-sm text-gray-500">#30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-orange-500 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mclaren-1" alt="McLaren MCL39 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/ff8000/FFFFFF?text=MCL39+Car';">
                      <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
                        <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/mclaren-logo.png" alt="McLaren Logo">
                     </div>
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">McLaren Formula 1 Team</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">A team with a rich heritage of innovation and success, famous for its iconic papaya orange livery.</p>
+                    <h3 class="text-2xl font-bold text-white">McLaren Formula 1 Team <span class="text-sm text-gray-400">(MCL39)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">Continuing with one of the strongest young lineups on the grid, looking to build on their resurgence in the fight for the top.</p>
                     <div class="mt-6">
                         <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-6">
                             <div class="text-center">
                                 <p class="font-bold">Lando Norris</p>
                                 <p class="text-sm text-gray-500">#4</p>
@@ -145,7 +130,189 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-400 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mercedes-1" alt="Mercedes-AMG F1 W16 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=F1+W16+Car';">
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/mercedes-logo.png" alt="Mercedes Logo">
                     </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Mercedes-AMG Petronas F1 Team <span class="text-sm text-gray-400">(F1 W16)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">A new era for the Silver Arrows, as George Russell is joined by highly-touted young talent Andrea Kimi Antonelli.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">George Russell</p>
+                                <p class="text-sm text-gray-500">#63</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">A. Kimi Antonelli</p>
+                                <p class="text-sm text-gray-500">#12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-green-700 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/aston-martin-2024-livery.jpg" alt="Aston Martin AMR25 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/004240/FFFFFF?text=AMR25+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/aston-martin-logo.png" alt="Aston Martin Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Aston Martin Aramco F1 Team <span class="text-sm text-gray-400">(AMR25)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">Continuity in the driver lineup, relying on the experience of a two-time champion to drive development for the future.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Fernando Alonso</p>
+                                <p class="text-sm text-gray-500">#14</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Lance Stroll</p>
+                                <p class="text-sm text-gray-500">#18</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-blue-400 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/williams-2024-livery.jpg" alt="Williams FW47 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/003d66/FFFFFF?text=FW47+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/williams-logo.png" alt="Williams Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Atlassian Williams Racing <span class="text-sm text-gray-400">(FW47)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">A massive signing for the team, as Carlos Sainz joins Alex Albon to lead the historic team back up the grid.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Alex Albon</p>
+                                <p class="text-sm text-gray-500">#23</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Carlos Sainz</p>
+                                <p class="text-sm text-gray-500">#55</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-pink-500 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/alpine-2024-livery.jpg" alt="Alpine A525 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/005087/FFFFFF?text=A525+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/alpine-logo.png" alt="Alpine Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">BWT Alpine F1 Team <span class="text-sm text-gray-400">(A525)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">The French manufacturer seeks better results with an all-French lineup featuring Pierre Gasly and young talent Franco Colapinto.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Pierre Gasly</p>
+                                <p class="text-sm text-gray-500">#10</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Franco Colapinto</p>
+                                <p class="text-sm text-gray-500">#43</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-600 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/visa-cash-app-rb-2024-livery.jpg" alt="Racing Bulls VCARB 02 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/2844a4/FFFFFF?text=VCARB+02+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/visa-cash-app-rb-logo.png" alt="Visa Cash App Racing Bulls Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Visa Cash App Racing Bulls F1 Team <span class="text-sm text-gray-400">(VCARB 02)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">The sister team to Red Bull, focusing on developing junior talent with an exciting mix of youth and experience.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Yuki Tsunoda</p>
+                                <p class="text-sm text-gray-500">#22</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Isack Hadjar</p>
+                                <p class="text-sm text-gray-500">#6</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-500 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/haas-2024-livery.jpg" alt="Haas VF-25 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/b00000/FFFFFF?text=VF-25+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/haas-logo.png" alt="Haas Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">MoneyGram Haas F1 Team <span class="text-sm text-gray-400">(VF-25)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">A completely revamped driver lineup for 2025, pairing the experienced Esteban Ocon with the highly anticipated rookie Oliver Bearman.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Esteban Ocon</p>
+                                <p class="text-sm text-gray-500">#31</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Oliver Bearman</p>
+                                <p class="text-sm text-gray-500">#87</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-lime-500 flex flex-col">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover car-image" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f1-website/teams/2024/kick-sauber-2024-livery.jpg" alt="Kick Sauber C45 Car Livery" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/00d33d/FFFFFF?text=C45+Car';">
+                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
+                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/kick-sauber-logo.png" alt="Kick Sauber Logo">
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold text-white">Stake F1 Team Kick Sauber <span class="text-sm text-gray-400">(C45)</span></h3>
+                    <p class="text-gray-400 mt-2 flex-grow">Preparing for the Audi takeover, the team fields the veteran Nico Hulkenberg alongside F2 champion Gabriel Bortoleto in C45.</p>
+                    <div class="mt-6">
+                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
+                        <div class="flex space-x-6">
+                            <div class="text-center">
+                                <p class="font-bold">Nico Hülkenberg</p>
+                                <p class="text-sm text-gray-500">#27</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="font-bold">Gabriel Bortoleto</p>
+                                <p class="text-sm text-gray-500">#5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -153,14 +320,13 @@
     
     <footer class="bg-gray-900 mt-8">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            <p>&copy; 2024 F1 World Showcase. All rights reserved.</p>
+            <p>&copy; 2025 F1 World Showcase. All rights reserved.</p>
             <p class="text-sm">This is an unofficial fan site. All images and logos belong to their respective owners.</p>
         </div>
     </footer>
 
     <script>
-        // The entire JavaScript block has been removed as it was only handling the analysis feature.
-        // The remaining code is static HTML/CSS.
+        // All JavaScript has been removed to ensure the page remains static and free of AI features.
     </script>
 
 </body>
