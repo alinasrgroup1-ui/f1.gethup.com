@@ -22,197 +22,273 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
         .team-logo {
-            max-height: 50px;
-            width: auto;
-            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+        }
+        .team-card[data-team="Ferrari"] { border-left-color: #E60023; }
+        .team-card[data-team="Mercedes"] { border-left-color: #00D2BE; }
+        .team-card[data-team="Red Bull"] { border-left-color: #0600EF; }
+        .team-card[data-team="McLaren"] { border-left-color: #FF8700; }
+        .team-card[data-team="Aston Martin"] { border-left-color: #006F62; }
+        .team-card[data-team="Alpine"] { border-left-color: #0090FF; }
+        .team-card[data-team="Williams"] { border-left-color: #005AFF; }
+        .team-card[data-team="Visa RB"] { border-left-color: #6692FF; }
+        .team-card[data-team="Sauber"] { border-left-color: #52E252; }
+        .team-card[data-team="Haas"] { border-left-color: #FFFFFF; }
+
+        /* Modal Styles */
+        .modal-hidden {
+            display: none;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #1f2937; /* Gray-800 */
+            padding: 2rem;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            color: #f3f4f6; /* Gray-100 */
+            max-height: 90vh;
+            overflow-y: auto;
         }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="min-h-screen p-8 text-white">
 
-    <header class="bg-gray-900 shadow-lg">
-        <div class="container mx-auto px-6 py-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                <span class="text-red-500">F1</span> WORLD
-            </h1>
-            <p class="mt-2 text-lg text-gray-400">The Pinnacle of Motorsport: Teams, Drivers, and Cars</p>
-        </div>
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-black text-red-600 mb-2">F1 Strategic Analysis</h1>
+        <p class="text-xl text-gray-400">Powered by the Gemini API</p>
     </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold text-center mb-10 text-white">Meet the 2024 Teams</h2>
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
-            
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mercedes-1" alt="Mercedes-AMG F1 W15 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=W15+Car';">
-                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/mercedes-logo.png" alt="Mercedes Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Mercedes-AMG Petronas</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">A dominant force in the hybrid era, known for engineering excellence and multiple championships.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Lewis Hamilton</p>
-                                <p class="text-sm text-gray-500">#44</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">George Russell</p>
-                                <p class="text-sm text-gray-500">#63</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="mt-6">
-                        <button class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-75 cursor-not-allowed" disabled>
-                            Analysis Unavailable
-                        </button>
-                    </div>
-                </div>
+        <div data-team="Red Bull" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Red_Bull_Racing_logo.svg/100px-Red_Bull_Racing_logo.svg.png" alt="Red Bull Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">Red Bull Racing</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Max Verstappen & Sergio Perez.
+                    <br>Car Profile: Dominant in high-speed corners and straight-line efficiency. Exceptional tire wear management.
+                </p>
             </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Red-Bull-2024/Oracle-Red-Bull-Racing-RB20-launch-2024-1" alt="Red Bull Racing RB20 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=RB20+Car';">
-                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/red-bull-racing-logo.png" alt="Red Bull Racing Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Oracle Red Bull Racing</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">Known for their aggressive strategy, aerodynamic prowess, and a championship-winning pedigree.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Max Verstappen</p>
-                                <p class="text-sm text-gray-500">#1</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">Sergio Pérez</p>
-                                <p class="text-sm text-gray-500">#11</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <button class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-75 cursor-not-allowed" disabled>
-                            Analysis Unavailable
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/Ferrari-2024/Scuderia-Ferrari-SF-24-launch-2024" alt="Ferrari SF-24 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=SF-24+Car';">
-                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/ferrari-logo.png" alt="Ferrari Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Scuderia Ferrari</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">The most historic and successful team in F1, with a passionate global fanbase known as the Tifosi.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Charles Leclerc</p>
-                                <p class="text-sm text-gray-500">#16</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">Carlos Sainz</p>
-                                <p class="text-sm text-gray-500">#55</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="mt-6">
-                        <button class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-75 cursor-not-allowed" disabled>
-                           Analysis Unavailable
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/mclaren-1" alt="McLaren MCL38 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=MCL38+Car';">
-                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/mclaren-logo.png" alt="McLaren Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">McLaren Formula 1 Team</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">A team with a rich heritage of innovation and success, famous for its iconic papaya orange livery.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Lando Norris</p>
-                                <p class="text-sm text-gray-500">#4</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">Oscar Piastri</p>
-                                <p class="text-sm text-gray-500">#81</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <button class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-75 cursor-not-allowed" disabled>
-                            Analysis Unavailable
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_1920,q_auto/f_auto,c_limit,w_1920,q_auto/f1-website/2024/Car-launches/aston-martin-2024" alt="Aston Martin AMR24 Car" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000000/FFFFFF?text=AMR24+Car';">
-                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black to-transparent w-full p-4">
-                       <img class="team-logo" src="https://media.formula1.com/image/upload/f_auto,c_limit,w_130,q_auto/content/dam/fom-website/teams/2024/aston-martin-logo.png" alt="Aston Martin Logo">
-                    </div>
-                </div>
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold text-white">Aston Martin Aramco F1 Team</h3>
-                    <p class="text-gray-400 mt-2 flex-grow">A rapidly improving team with a strong focus on aerodynamics and technical expertise, aiming to join the top tier.</p>
-                    <div class="mt-6">
-                        <h4 class="font-semibold text-lg text-red-400 mb-2">Drivers</h4>
-                        <div class="flex space-x-4">
-                            <div class="text-center">
-                                <p class="font-bold">Fernando Alonso</p>
-                                <p class="text-sm text-gray-500">#14</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="font-bold">Lance Stroll</p>
-                                <p class="text-sm text-gray-500">#18</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <button class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 opacity-75 cursor-not-allowed" disabled>
-                            Analysis Unavailable
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+            <button class="gemini-btn mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="Red Bull Racing"
+                    data-info="The car is dominant in high-speed corners and straight-line efficiency. The team has exceptional tire wear management and their primary driver, Max Verstappen, is known for aggressive but precise overtakes and maximizing tire life. The second driver, Sergio Perez, is often used to run alternative strategies.">
+                Analyze Team Strategy
+            </button>
         </div>
+
+        <div data-team="Ferrari" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Scuderia_Ferrari_logo.svg/100px-Scuderia_Ferrari_logo.svg.png" alt="Ferrari Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">Scuderia Ferrari</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Charles Leclerc & Carlos Sainz.
+                    <br>Car Profile: Strong engine power, excellent over curbs, but historically suffers from high tire degradation and sometimes questionable strategy calls.
+                </p>
+            </div>
+            <button class="gemini-btn mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="Scuderia Ferrari"
+                    data-info="The car is known for its strong engine power and excellence over curbs, which is key for qualifying. However, the car historically suffers from high tire degradation in the race. Drivers Charles Leclerc and Carlos Sainz are both aggressive, but Leclerc excels in raw single-lap pace.">
+                Analyze Team Strategy
+            </button>
+        </div>
+
+        <div data-team="Mercedes" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mercedes_Benz_in_Motorsport.svg/100px-Mercedes_Benz_in_Motorsport.svg.png" alt="Mercedes Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">Mercedes-AMG PETRONAS</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Lewis Hamilton & George Russell.
+                    <br>Car Profile: Excellent mechanical grip, excels in cooler conditions, known for having a flexible, well-engineered strategy department.
+                </p>
+            </div>
+            <button class="gemini-btn mt-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="Mercedes-AMG PETRONAS"
+                    data-info="The car shows excellent mechanical grip and generally excels in cooler conditions. The team is known for having a flexible, well-engineered strategy department. Driver Lewis Hamilton is a master of patient, opportunistic strategy, while George Russell is known for his aggressive start and risk-taking.">
+                Analyze Team Strategy
+            </button>
+        </div>
+
+        <div data-team="McLaren" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/McLaren_F1_logo.svg/100px-McLaren_F1_logo.svg.png" alt="McLaren Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">McLaren Formula 1 Team</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Lando Norris & Oscar Piastri.
+                    <br>Car Profile: High downforce, strong in medium-to-high speed corners, but can struggle with drag on long straights. Excellent pit stop execution.
+                </p>
+            </div>
+            <button class="gemini-btn mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="McLaren Formula 1 Team"
+                    data-info="The car is high downforce and strong in medium-to-high speed corners, but can struggle with drag on long straights. They have excellent pit stop execution. Lando Norris is known for his tire preservation, while Oscar Piastri is quick to adapt to varying track conditions.">
+                Analyze Team Strategy
+            </button>
+        </div>
+
+        <div data-team="Aston Martin" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Aston_Martin_Aramco_F1_logo.svg/100px-Aston_Martin_Aramco_F1_logo.svg.png" alt="Aston Martin Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">Aston Martin Aramco F1</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Fernando Alonso & Lance Stroll.
+                    <br>Car Profile: Very strong in slow-speed corners, excels at minimizing tire wear. Strategy is often flexible, leveraging Alonso's experience.
+                </p>
+            </div>
+            <button class="gemini-btn mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="Aston Martin Aramco F1"
+                    data-info="The car is very strong in slow-speed corners and excels at minimizing tire wear. The team's strategy is often flexible, leveraging Fernando Alonso's vast experience and ability to manage pace. Lance Stroll provides a reliable secondary data point for strategy divergence.">
+                Analyze Team Strategy
+            </button>
+        </div>
+        
+        <div data-team="Visa RB" class="team-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-8 border-transparent flex flex-col justify-between">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Visa_Cash_App_RB_F1_Team_logo.svg/100px-Visa_Cash_App_RB_F1_Team_logo.svg.png" alt="Visa RB Logo" class="team-logo h-12 mb-4">
+                <h2 class="text-2xl font-bold mb-2">Visa Cash App RB F1 Team</h2>
+                <p class="text-gray-400 mb-4">
+                    Drivers: Daniel Ricciardo & Yuki Tsunoda.
+                    <br>Car Profile: Strong top speed due to Red Bull powertrain and design philosophy. Often aims for one-stop strategies to maximize track position.
+                </p>
+            </div>
+            <button class="gemini-btn mt-4 bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    data-team="Visa Cash App RB F1 Team"
+                    data-info="The car has a strong top speed due to the Red Bull powertrain and design philosophy. The team often aims for aggressive one-stop strategies to maximize track position. Driver Daniel Ricciardo is known for clever race craft, while Yuki Tsunoda is quick in qualifying but can be aggressive with tires.">
+                Analyze Team Strategy
+            </button>
+        </div>
+
     </main>
-    
-    <footer class="bg-gray-900 mt-8">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            <p>&copy; 2024 F1 World Showcase. All rights By Ali Ahmed Nassr 2025.</p>
-            <p class="text-sm">Developed by **[User's Name]**.</p>
-            <p class="text-sm">This is an unofficial fan site. All images and logos belong to their respective owners.</p>
+
+    <div id="gemini-modal" class="modal-overlay modal-hidden">
+        <div class="modal-content">
+            <div class="flex justify-between items-start mb-4">
+                <h3 id="modal-title" class="text-3xl font-bold text-red-500">Strategic Analysis</h3>
+                <button id="close-modal-btn" class="text-gray-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div id="spinner-container" class="flex justify-center items-center py-8" style="display: none;">
+                <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-red-500"></div>
+            </div>
+            
+            <p id="gemini-response" class="text-gray-200 leading-relaxed whitespace-pre-wrap"></p>
+            <p class="text-sm text-gray-500 mt-4 border-t border-gray-700 pt-2">Analysis provided by the Gemini API via a secure proxy. The proxy holds the API key and prevents its exposure on GitHub Pages.</p>
         </div>
-    </footer>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // All logic for Gemini API features has been removed.
+            const modal = document.getElementById('gemini-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const modalTitle = document.getElementById('modal-title');
+            const geminiResponseEl = document.getElementById('gemini-response');
+            const spinnerContainer = document.getElementById('spinner-container');
+            const geminiBtns = document.querySelectorAll('.gemini-btn');
+
+            // 🛑 REMOVED: const apiKey = ""; 
+            // 🛑 REMOVED: const API_URL = "..."
+
+            // IMPORTANT: This URL MUST be replaced with your deployed Serverless Function or Proxy endpoint.
+            const PROXY_URL = "https://YOUR-SECURE-PROXY-ENDPOINT.com/f1-analysis"; 
+
+
+            // Function to show the modal
+            const showModal = () => {
+                modal.classList.remove('modal-hidden');
+            };
+
+            // Function to hide the modal
+            const hideModal = () => {
+                modal.classList.add('modal-hidden');
+            };
+            
+            // Close modal when clicking the close button or the overlay
+            closeModalBtn.addEventListener('click', hideModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+
+            // Add event listeners to all "Analyze" buttons
+            geminiBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const teamName = btn.dataset.team;
+                    const teamInfo = btn.dataset.info;
+                    
+                    modalTitle.textContent = `Strategic Analysis: ${teamName}`;
+                    geminiResponseEl.textContent = '';
+                    spinnerContainer.style.display = 'flex';
+                    showModal();
+                    
+                    // Note: apiKey is no longer passed here
+                    callGeminiAPI(teamName, teamInfo);
+                });
+            });
+
+            // --- Gemini API Call (Now via Proxy) ---
+            async function callGeminiAPI(teamName, teamInfo, retries = 3, delay = 1000) {
+                
+                const systemPrompt = "You are a world-class Formula 1 strategist and analyst. Your insights are sharp, concise, and easy for a fan to understand.";
+                const userQuery = `Based on this information: "${teamInfo}", provide a short, insightful analysis of the likely race strategy for the ${teamName} Formula 1 team. Focus on their typical strengths, car characteristics, and driver styles to predict how they might approach a race weekend. Keep the analysis to one paragraph.`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                try {
+                    // *** CALL THE PROXY URL ***
+                    const response = await fetch(PROXY_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        // Handle non-200 responses and retry with backoff
+                        if ((response.status === 429 || response.status >= 500) && retries > 0) {
+                           await new Promise(res => setTimeout(res, delay));
+                           return callGeminiAPI(teamName, teamInfo, retries - 1, delay * 2);
+                        }
+                        // This handles errors returned from your proxy, or if the proxy is unreachable
+                        throw new Error(`Proxy/API Error: ${response.status} ${response.statusText}`); 
+                    }
+
+                    const result = await response.json();
+                    
+                    // Assuming your proxy is configured to return the model's response directly
+                    if (result.text) {
+                        geminiResponseEl.textContent = result.text;
+                    } else if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                        geminiResponseEl.textContent = result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error("Invalid response structure from proxy.");
+                    }
+
+                } catch (error) {
+                    console.error('API call failed:', error);
+                    geminiResponseEl.textContent = 'Sorry, the strategic analysis could not be generated at this time. Please check your proxy configuration.';
+                } finally {
+                    spinnerContainer.style.display = 'none'; // Hide spinner
+                }
+            }
         });
     </script>
 
