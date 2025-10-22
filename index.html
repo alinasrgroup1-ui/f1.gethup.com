@@ -26,32 +26,6 @@
             width: auto;
             object-fit: contain;
         }
-        /* Modal Styles */
-        .modal-hidden {
-            display: none;
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background-color: #1f2937;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 1px solid #374151;
-        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -93,14 +67,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="mt-6">
-                        <button class="analysis-btn w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300" 
-                            data-team="Mercedes-AMG Petronas" 
-                            data-analysis="The Silver Arrows often favor a medium-high downforce setup to maximize grip and tire life, especially on high-speed circuits. Their strategic preference leans towards pitting early (undercut) or aiming for a reliable one-stop if the tires can handle it. Hamilton's experience and Russell's consistency provide a strong two-pronged attack, focusing on clean air and capitalizing on rivals' mistakes.">
-                            Team Strategy Analysis
-                        </button>
-                    </div>
-                </div>
+                     </div>
             </div>
 
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
@@ -126,14 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6">
-                        <button class="analysis-btn w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300" 
-                            data-team="Oracle Red Bull Racing" 
-                            data-analysis="Red Bull's strategy is consistently aggressive, relying on the car's superior aerodynamic efficiency, particularly in mid-to-low speed corners, and the unmatched race pace of Verstappen. They are masters of the overcut (staying out longer) to build a tire offset, and their pit stops are notoriously fast. Pérez often acts as a tactical anchor, managing the gap to protect Verstappen's lead or disrupt rivals' strategies.">
-                            Team Strategy Analysis
-                        </button>
                     </div>
-                </div>
             </div>
 
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
@@ -159,14 +119,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="mt-6">
-                        <button class="analysis-btn w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300" 
-                            data-team="Scuderia Ferrari" 
-                            data-analysis="Ferrari tends to prioritize raw, single-lap pace in qualifying which occasionally compromises their tire degradation in the race. Their strategy is often more flexible but has historically been prone to errors. They generally run a high-power setting early in stints to build a gap, often favoring a two-stop strategy when tire wear is high. Leclerc is known for aggressive tire management, while Sainz provides a steady, points-scoring presence.">
-                           Team Strategy Analysis
-                        </button>
-                    </div>
-                </div>
+                     </div>
             </div>
 
             <div class="team-card bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-700 flex flex-col">
@@ -192,30 +145,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6">
-                        <button class="analysis-btn w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300" 
-                            data-team="McLaren Formula 1 Team" 
-                            data-analysis="McLaren has shown a strong preference for high-speed performance and aggressive development cycles. Their strategy often involves mid-race pace spikes enabled by a strong chassis that is kind to the tires. They are willing to take risks on unconventional tire choices or pit windows. Both Norris and Piastri are strong, young drivers who can execute complex pit maneuvers and are quick to react to changing race conditions.">
-                            Team Strategy Analysis
-                        </button>
                     </div>
-                </div>
             </div>
 
         </div>
     </main>
     
-    <div id="analysis-modal" class="modal-hidden modal-overlay">
-        <div class="modal-content">
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white">&times;</button>
-            <h3 id="modal-title" class="text-2xl font-bold text-white mb-4">Strategic Analysis</h3>
-            <div id="modal-body" class="text-gray-300">
-                <p id="analysis-response" class="whitespace-pre-wrap"></p>
-            </div>
-        </div>
-    </div>
-
-
     <footer class="bg-gray-900 mt-8">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
             <p>&copy; 2024 F1 World Showcase. All rights reserved.</p>
@@ -224,51 +159,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Updated IDs to be generic
-            const modal = document.getElementById('analysis-modal');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const modalTitle = document.getElementById('modal-title');
-            const analysisResponseEl = document.getElementById('analysis-response');
-            // Updated class selector
-            const analysisBtns = document.querySelectorAll('.analysis-btn');
-
-            // Function to show the modal
-            const showModal = () => {
-                modal.classList.remove('modal-hidden');
-            };
-
-            // Function to hide the modal
-            const hideModal = () => {
-                modal.classList.add('modal-hidden');
-            };
-            
-            // Close modal when clicking the close button or the overlay
-            closeModalBtn.addEventListener('click', hideModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    hideModal();
-                }
-            });
-
-            // Add event listeners to all "Analysis" buttons
-            analysisBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const teamName = btn.dataset.team;
-                    // Retrieve the static analysis from the new data attribute
-                    const teamAnalysis = btn.dataset.analysis; 
-                    
-                    modalTitle.textContent = `Strategic Analysis: ${teamName}`;
-                    // Display the static content directly
-                    analysisResponseEl.textContent = teamAnalysis;
-                    
-                    showModal();
-                });
-            });
-            
-            // The callGeminiAPI function and all related variables (apiKey, apiUrl, etc.) have been removed.
-
-        });
+        // The entire JavaScript block has been removed as it was only handling the analysis feature.
+        // The remaining code is static HTML/CSS.
     </script>
 
 </body>
